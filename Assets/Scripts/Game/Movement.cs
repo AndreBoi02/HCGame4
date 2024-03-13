@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    void move2(Vector2 dir, float speed){
+    public void move2(Vector2 dir, float speed) {
         transform.Translate(dir * speed * Time.deltaTime);
+    }
+
+    void rotate(GameObject obj, float way2go) {
+        obj.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        obj.transform.localRotation = Quaternion.Euler( 0, 0, 45 * way2go);
     }
 }
