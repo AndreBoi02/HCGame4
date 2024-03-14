@@ -14,11 +14,34 @@ public class Coconut : Agent
         base.Update();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {  
+        int dir = 0;
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            
+            int ran;
+            ran = Random.Range(0, 2);
+            if (ran == 0)
+            {
+                dir = 1;
+            }
+            else
+            {
+                dir = -1;
+            }
+            mov.rotate(gameObject, dir);
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            if (gameObject.transform.position.y > 2)
+            {
+                dir = -1;
+            }
+            else
+            {
+                dir = 1;
+            }
+            mov.rotate(gameObject, dir);
         }
     }
 }

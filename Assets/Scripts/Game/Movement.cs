@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
         transform.Translate(dir * speed * Time.deltaTime);
     }
 
-    void rotate(GameObject obj, float way2go) {
+    public void rotate(GameObject obj, float way2go) {
         obj.transform.localRotation = Quaternion.Euler(0, 0, 0);
         obj.transform.localRotation = Quaternion.Euler( 0, 0, 45 * way2go);
     }
